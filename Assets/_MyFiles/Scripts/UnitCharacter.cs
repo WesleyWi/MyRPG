@@ -5,12 +5,15 @@ using UnityEngine;
 public class UnitCharacter : MonoBehaviour
 {
     private CharacterStats CharacterStatProfile;
-    private EUnitType _UnitType;
+    [SerializeField] private EUnitType _UnitType;
+    [SerializeField] private int DiceNumber;
     private void Awake()
     {
         CharacterStatProfile = gameObject.AddComponent<CharacterStats>();
     }
 
     public CharacterStats GetCharacterStats() { return CharacterStatProfile; }
+    public int GetDiceNumber() { return DiceNumber; }
+    public void SetDiceNumber(int valueToSet) { DiceNumber = valueToSet;  }
 }
 public enum EUnitType { Player, Partner, Enemy, NPC}

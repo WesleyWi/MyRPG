@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
 
     private GameObject Player;
     [SerializeField] private PartyManager Party;
+    [SerializeField] private BattleManager CurrentBattle;
     public void Awake()
     {
         if (m_Instance != null && m_Instance != this)
@@ -29,6 +30,7 @@ public class GameManager : MonoBehaviour
         {
             //Spawn Player
             Player = Instantiate(PlayerPrefab, PlayerSpawn.transform.position, PlayerSpawn.transform.rotation);
+            CreatePartyManager();
 
         }
         else
@@ -56,4 +58,18 @@ public class GameManager : MonoBehaviour
         Destroy(Party);
         Party = null;
     }
+    public PartyManager GetPartyManager() { return Party; }
+    public void CreateBattleManager(List<GameObject> enemyBattleList)
+    {
+        Debug.Log("Creating BattleManager");
+        CurrentBattle = gameObject.AddComponent<BattleManager>();
+        CurrentBattle.InitializeBattle(enemyBattleList);
+
+    }
+    public void DestroyBattleManager()
+    {
+        Destroy(CurrentBattle);
+        CurrentBattle = null;
+    }
+    public BattleManager GetBattleManager() { return CurrentBattle; }
 }
