@@ -606,6 +606,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _UnitType: 2
+  DiceNumber: 0
 --- !u!114 &1131904511
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -620,7 +621,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CharacterName: 
   CharacterDescription: 
-  characterStats: []
 --- !u!114 &1131904512
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -633,7 +633,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45847b35c1c375341801b29ad84e2a3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyPartnerList: []
+  EnemyPartnerList:
+  - {fileID: 1131904505}
+  - {fileID: 1666234829}
+  - {fileID: 2055788448}
 --- !u!114 &1131904513
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -840,7 +843,6 @@ GameObject:
   - component: {fileID: 1666234831}
   - component: {fileID: 1666234830}
   - component: {fileID: 1666234834}
-  - component: {fileID: 1666234835}
   m_Layer: 0
   m_Name: Enemy (2)
   m_TagString: Untagged
@@ -949,20 +951,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _UnitType: 0
---- !u!114 &1666234835
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1666234829}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b99f805faca0294faf038e5ca1a7e1e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  StatName: 
-  BaseValue: 0
+  DiceNumber: 0
 --- !u!1 &2055788448
 GameObject:
   m_ObjectHideFlags: 0
@@ -976,7 +965,6 @@ GameObject:
   - component: {fileID: 2055788450}
   - component: {fileID: 2055788449}
   - component: {fileID: 2055788453}
-  - component: {fileID: 2055788454}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -1085,20 +1073,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _UnitType: 0
---- !u!114 &2055788454
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2055788448}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b99f805faca0294faf038e5ca1a7e1e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  StatName: 
-  BaseValue: 0
+  DiceNumber: 0
 --- !u!1 &2121435523
 GameObject:
   m_ObjectHideFlags: 0

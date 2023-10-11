@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Stat : MonoBehaviour
+public class Stat
 {
     [SerializeField] private string StatName;
     [SerializeField] private int BaseValue;

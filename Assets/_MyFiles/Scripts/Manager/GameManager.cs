@@ -50,6 +50,7 @@ public class GameManager : MonoBehaviour
 
     public void CreatePartyManager()
     {
+        if (Player) { return; }
         Party = gameObject.AddComponent<PartyManager>();
 
     }
@@ -61,6 +62,8 @@ public class GameManager : MonoBehaviour
     public PartyManager GetPartyManager() { return Party; }
     public void CreateBattleManager(List<GameObject> enemyBattleList)
     {
+        if (CurrentBattle) { return; }
+
         Debug.Log("Creating BattleManager");
         CurrentBattle = gameObject.AddComponent<BattleManager>();
         CurrentBattle.InitializeBattle(enemyBattleList);

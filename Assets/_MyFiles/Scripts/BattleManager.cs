@@ -45,6 +45,6 @@ public class BattleManager : MonoBehaviour
     {
         //HomeWork
         //1. Move the first instances to the end
-        //2. Move all of the instances up
+        //2. Move all of the instances up  
     }
 }
