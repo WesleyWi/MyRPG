@@ -28,7 +28,6 @@ public class CharacterStats : MonoBehaviour
             characterStats.Add(newStat);
         }
     }
-
     public Stat Getstat(StatType statToGet)
     {
         string nameToGet = statToGet.ToString();
@@ -43,5 +42,4 @@ public class CharacterStats : MonoBehaviour
 
     }
 }
-
 public enum StatType { MaxHealth, Health, MaxMana, Mana, Power, Intelligence, Defense, COUNT}
