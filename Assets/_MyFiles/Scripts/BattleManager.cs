@@ -62,25 +62,9 @@ public class BattleManager : MonoBehaviour
 
     public void EndTurn()
     {
-        if (TurnOrder.Count > 1)
-        {
-            // 1. Move the first instance to the end
-            GameObject firstUnit = TurnOrder[0];
-            TurnOrder.RemoveAt(0);
-            TurnOrder.Add(firstUnit);
-
-            // 2. Move all of the instances up
-            for (int i = 0; i < TurnOrder.Count; i++)
-            {
-                if (i == 0)
-                {
-                    // Skip the first unit since it was moved to the end.
-                    continue;
-                }
-
-                // Perform some action on each unit, e.g., updating their position.
-            }
-        }
+        GameObject turnHolder = TurnOrder[0];
+        TurnOrder.RemoveAt(0);
+        TurnOrder.Insert(TurnOrder.Count, turnHolder);
     }
 
 

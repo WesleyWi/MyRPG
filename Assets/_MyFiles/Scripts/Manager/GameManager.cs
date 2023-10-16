@@ -11,6 +11,9 @@ public class GameManager : MonoBehaviour
     private GameObject Player;
     [SerializeField] private PartyManager Party;
     [SerializeField] private BattleManager CurrentBattle;
+
+    bool bDebugToggle = false;
+
     public void Awake()
     {
         if (m_Instance != null && m_Instance != this)
@@ -29,7 +32,8 @@ public class GameManager : MonoBehaviour
         if (PlayerPrefab)
         {
             //Spawn Player
-            Player = Instantiate(PlayerPrefab, PlayerSpawn.transform.position, PlayerSpawn.transform.rotation);
+            GameObject playerGRP = Instantiate(PlayerPrefab, PlayerSpawn.transform.position, PlayerSpawn.transform.rotation);
+            Player = playerGRP.GetComponentInChildren<UnitCharacter>().gameObject;
             CreatePartyManager();
 
         }
@@ -75,4 +79,41 @@ public class GameManager : MonoBehaviour
         CurrentBattle = null;
     }
     public BattleManager GetBattleManager() { return CurrentBattle; }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            if (bDebugToggle)
+            {
+                Cursor.lockState = CursorLockMode.Confined;
+                Cursor.visible = true;
+            }
+            else
+            {
+                Cursor.lockState= CursorLockMode.Locked;
+                Cursor.visible = false;
+            }
+        }
+    }
+
+    public void SaveData()
+    {
+        Debug.Log("Saving Data...");
+        string playerData = JsonUtility.ToJson(Player.GetComponent<UnitCharacter>().GetCharacterStats());
+        string filePath = Application.persistentDataPath + "/PlayerData.json";
+        Debug.Log(filePath);
+        Debug.Log("Save Complete");
+
+    }
+
+    public void LoadData()
+    {
+        Debug.Log("Loading Data...");
+        string filePath = Application.persistentDataPath + "/PlayerData.json";
+        string playerData = System.IO.File.ReadAllText(filePath);
+        JsonUtility.FromJsonOverwrite(playerData, Player.GetComponent<UnitCharacter>().GetCharacterStats());
+        Debug.Log("Load Complete!");
+
+    }
 }

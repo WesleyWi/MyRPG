@@ -13,6 +13,7 @@ public class UnitCharacter : MonoBehaviour
     }
 
     public CharacterStats GetCharacterStats() { return CharacterStatProfile; }
+    public EUnitType GetUnitType() { return _UnitType; }
     public int GetDiceNumber() { return DiceNumber; }
     public void SetDiceNumber(int valueToSet) { DiceNumber = valueToSet;  }
 }
