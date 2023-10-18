@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PickUpScript : MonoBehaviour
 {
-    public Item m_ItemProfile;
+    [SerializeField] private Item ItemProfile;
 
     public void OnTriggerEnter(Collider other)
     {
@@ -14,8 +14,15 @@ public class PickUpScript : MonoBehaviour
         {
             //Add Item To Inventory
             Debug.Log("Item Get!");
+            bool InventoryNotFull = other.GetComponent<UnitCharacter>().GetInventory().AddItem(ItemProfile);
+            if(InventoryNotFull)
+            {
+                Destroy(this.gameObject);
+            }
+            else
+            {
 
-            Destroy(this.gameObject);
+            }
         }
     }
 }

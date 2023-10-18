@@ -1,16 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices.WindowsRuntime;
+using System.Security.Cryptography;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager m_Instance;
+
+    [Header("Player Info")]
     [SerializeField] GameObject PlayerPrefab;
     [SerializeField] Transform PlayerSpawn;
-
+    [SerializeField] GameObject InventorySlotUI;
     private GameObject Player;
+
+
     [SerializeField] private PartyManager Party;
     [SerializeField] private BattleManager CurrentBattle;
+    [SerializeField] private InventroyUIManager InventoryUI;
 
     bool bDebugToggle = false;
 
@@ -35,12 +43,19 @@ public class GameManager : MonoBehaviour
             GameObject playerGRP = Instantiate(PlayerPrefab, PlayerSpawn.transform.position, PlayerSpawn.transform.rotation);
             Player = playerGRP.GetComponentInChildren<UnitCharacter>().gameObject;
             CreatePartyManager();
+            CreateInventoryUIManager();
+
+            LoadData();
+
+
 
         }
         else
         {
             Debug.LogWarning("PlayerPrefab or PlayerSpawn not referenced.");
         }
+
+        
     }
 
     public GameObject GetPlayer()
@@ -97,6 +112,20 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public InventroyUIManager GetInventroyUIManager() { return InventoryUI; }
+    public void CreateInventoryUIManager()
+    {
+        if (InventoryUI) { return; }
+
+        InventoryUI = gameObject.AddComponent<InventroyUIManager>();
+    }
+
+    public void OnDestroy()
+    {
+        Destroy(InventoryUI);
+            InventoryUI = null;
+    }
+
     public void SaveData()
     {
         Debug.Log("Saving Data...");
@@ -111,9 +140,13 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("Loading Data...");
         string filePath = Application.persistentDataPath + "/PlayerData.json";
-        string playerData = System.IO.File.ReadAllText(filePath);
-        JsonUtility.FromJsonOverwrite(playerData, Player.GetComponent<UnitCharacter>().GetCharacterStats());
-        Debug.Log("Load Complete!");
+        if (System.IO.File.Exists(filePath))
+        {
+            string playerData = System.IO.File.ReadAllText(filePath);
+            JsonUtility.FromJsonOverwrite(playerData, Player.GetComponent<UnitCharacter>().GetCharacterStats());
+            Debug.Log("Load Complete!");
+        }
+        
 
     }
 }
