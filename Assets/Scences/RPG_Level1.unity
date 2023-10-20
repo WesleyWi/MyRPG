@@ -3859,12 +3859,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1090747471}
     m_Modifications:
-    - target: {fileID: 446050933574738501, guid: 8e7ef9e4565d284409a45556d63e21a6,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 3a45fe00025901645bb33b9793ca423c,
-        type: 3}
     - target: {fileID: 6916801013776520203, guid: 8e7ef9e4565d284409a45556d63e21a6,
         type: 3}
       propertyPath: m_Pivot.x
@@ -3969,11 +3963,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ItemSlot
-      objectReference: {fileID: 0}
-    - target: {fileID: 8364906286942758520, guid: 8e7ef9e4565d284409a45556d63e21a6,
-        type: 3}
-      propertyPath: m_Colors.m_DisabledColor.a
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

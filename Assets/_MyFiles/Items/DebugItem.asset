@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: DebugItem
   m_EditorClassIdentifier: 
   m_ItemName: 
-  m_ItemIcon: {fileID: 0}
+  m_ItemIcon: {fileID: 21300000, guid: 3a45fe00025901645bb33b9793ca423c, type: 3}
