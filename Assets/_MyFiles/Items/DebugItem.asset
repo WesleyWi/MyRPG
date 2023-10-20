@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 189a421a1be27fb45bf22cab792d4d5e, type: 3}
   m_Name: DebugItem
   m_EditorClassIdentifier: 
-  m_ItemName: 
+  m_ItemName: Box
   m_ItemIcon: {fileID: 21300000, guid: 3a45fe00025901645bb33b9793ca423c, type: 3}
