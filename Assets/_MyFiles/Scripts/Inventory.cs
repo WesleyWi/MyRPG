@@ -10,7 +10,6 @@ public class Inventory : MonoBehaviour
 
     public int GetInventorySpace() {  return InventorySpace; }
     public void SetInentorySpace(int spaceToSet) { InventorySpace = spaceToSet; }
-
     public List<Item> GetItemList() { return Item; }
     public bool AddItem(Item itemToAdd)
     {
@@ -30,7 +29,11 @@ public class Inventory : MonoBehaviour
 
     public void RemoveItem(Item itemToRemove)
     {
-        if (itemToRemove != null) { Item.Remove(itemToRemove); }
+        if (itemToRemove != null)
+        {
+            Item.Remove(itemToRemove);
+            GameManager.m_Instance.GetInventroyUIManager().UpdateUI(Item);
+        }
     }
 
 }
