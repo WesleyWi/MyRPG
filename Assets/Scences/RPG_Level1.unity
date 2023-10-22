@@ -2587,6 +2587,8 @@ GameObject:
   - component: {fileID: 1003614958}
   - component: {fileID: 1003614959}
   - component: {fileID: 1003614960}
+  - component: {fileID: 1003614962}
+  - component: {fileID: 1003614961}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -2653,6 +2655,47 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!136 &1003614961
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1003614957}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 1.83
+  m_Direction: 1
+  m_Center: {x: 0, y: 1.02, z: 0}
+--- !u!114 &1003614962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1003614957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa033a95998c4f041be6c370db7ed9cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waypoints:
+  - {fileID: 1693708164799962775, guid: 5b34fe337b102a24993a2f03b7091740, type: 3}
+  targetPos: {fileID: 2866503603494545769, guid: 5b34fe337b102a24993a2f03b7091740,
+    type: 3}
+  curSpeed: 0
+  followRange: 10
 --- !u!1 &1064421164
 GameObject:
   m_ObjectHideFlags: 0
@@ -6208,7 +6251,7 @@ Transform:
   m_GameObject: {fileID: 2121435523}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11.63, y: 1.031, z: 2.94}
+  m_LocalPosition: {x: -5.25, y: 1.031, z: -6.04}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
