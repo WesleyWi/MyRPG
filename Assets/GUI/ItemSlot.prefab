@@ -157,6 +157,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6916801013776520203}
+  - component: {fileID: 4573548657595380023}
   m_Layer: 5
   m_Name: ItemSlot
   m_TagString: Untagged
@@ -185,6 +186,21 @@ RectTransform:
   m_AnchoredPosition: {x: 10, y: -10}
   m_SizeDelta: {x: 55, y: 55}
   m_Pivot: {x: 0, y: 1}
+--- !u!114 &4573548657595380023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7921981649653265962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 537cb69c958e11b4d872dd8c0021d28d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ItemProfile: {fileID: 0}
+  Icon: {fileID: 0}
+  RemoveButton: {fileID: 0}
 --- !u!1 &8369009580390543870
 GameObject:
   m_ObjectHideFlags: 0
@@ -425,4 +441,16 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 966134385123423206}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4573548657595380023}
+        m_TargetAssemblyTypeName: ItemSlot, Assembly-CSharp
+        m_MethodName: UseItem
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

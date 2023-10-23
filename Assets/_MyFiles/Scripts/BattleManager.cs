@@ -7,7 +7,13 @@ public class BattleManager : MonoBehaviour
 {
     [SerializeField] private List<GameObject> TurnOrder = new List<GameObject>();
     [SerializeField] private bool BattleStarted = false;
+    [SerializeField] private EBattleState BattleState = EBattleState.Wait;
+    [SerializeField] private float TransitionTime = 3f;
     private List<GameObject> EnemyList = new List<GameObject>();
+
+    public EBattleState GetBattleState() { return BattleState; }
+
+    public void SetBattleState() {  BattleState = EBattleState.Wait;}
 
     public void InitializeBattle(List<GameObject> enemyBattleList)
     {
@@ -21,6 +27,27 @@ public class BattleManager : MonoBehaviour
 
             GatherUnits();
             //Start First State of Battle
+            SetBattleState(EBattleState.StartBattle);
+            StartCoroutine(BattleStart());
+        }
+    }
+
+    public IEnumerator BattleStart()
+    {
+        //Battle Transition
+        //Move camera or load Level
+
+        yield return new WaitForSeconds(TransitionTime);
+
+        SetBattleState(EBattleState.ChooseTurn);
+    }
+
+    public void ChooseTurn()
+    {
+        UnitCharacter currentTurn = TurnOrder[0].GetComponent<UnitCharacter>();
+        if ()
+        {
+
         }
     }
     public void GatherUnits()
@@ -67,5 +94,6 @@ public class BattleManager : MonoBehaviour
         TurnOrder.Insert(TurnOrder.Count, turnHolder);
     }
 
-
 }
+
+public enum EBattleState { Wait, StartBattle,}

@@ -31,4 +31,9 @@ public class ItemSlot : MonoBehaviour
         unit.GetInventory().RemoveItem(ItemProfile);
 
     }
+
+    public void UseItem()
+    {
+        if (ItemProfile != null) { ItemProfile.Use(); }
+    }
 }
