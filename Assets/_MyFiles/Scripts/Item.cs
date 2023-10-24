@@ -15,8 +15,9 @@ public class Item : ScriptableObject
         Debug.Log(m_ItemName + "is Being Used!");
     }
 
-    public void RemoveItem()
+    public virtual void RemoveItem()
     {
+
         Debug.Log("Removing Item...");
 
         GameManager.m_Instance.GetPlayer().GetComponent<UnitCharacter>().GetInventory().RemoveItem(this);

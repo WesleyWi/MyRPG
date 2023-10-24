@@ -24,10 +24,6 @@ public class CharacterEquipment : MonoBehaviour
 
     public void Unequip(int EquipmentIndex)
     {
-        if ()
-        {
-
-        }
     }
 
     private void EquipMods(Equipment gear)

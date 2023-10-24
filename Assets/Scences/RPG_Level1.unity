@@ -1800,6 +1800,7 @@ MonoBehaviour:
   _UnitType: 2
   DiceNumber: 0
   CharacterInventory: {fileID: 0}
+  CharacterEquipment: {fileID: 0}
 --- !u!114 &1131904512
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1873,6 +1874,8 @@ MonoBehaviour:
   - {fileID: 1666234829}
   - {fileID: 2055788448}
   BattleStarted: 0
+  BattleState: 0
+  TransitionTime: 3
 --- !u!114 &1131904516
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3083,6 +3086,7 @@ MonoBehaviour:
   _UnitType: 0
   DiceNumber: 0
   CharacterInventory: {fileID: 0}
+  CharacterEquipment: {fileID: 0}
 --- !u!1 &1689846394
 GameObject:
   m_ObjectHideFlags: 0
@@ -3779,6 +3783,7 @@ MonoBehaviour:
   _UnitType: 0
   DiceNumber: 0
   CharacterInventory: {fileID: 0}
+  CharacterEquipment: {fileID: 0}
 --- !u!1001 &2093940165
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3915,7 +3920,7 @@ GameObject:
   - component: {fileID: 2121435524}
   m_Layer: 0
   m_Name: PlayerSpawn
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

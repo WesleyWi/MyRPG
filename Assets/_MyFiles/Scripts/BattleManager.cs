@@ -46,10 +46,6 @@ public class BattleManager : MonoBehaviour
     public void ChooseTurn()
     {
         UnitCharacter currentTurn = TurnOrder[0].GetComponent<UnitCharacter>();
-        if ()
-        {
-
-        }
     }
     public void GatherUnits()
     {

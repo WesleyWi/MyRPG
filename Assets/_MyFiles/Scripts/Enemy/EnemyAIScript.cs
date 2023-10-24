@@ -1,3 +1,4 @@
+using StarterAssets;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,7 +18,7 @@ public class EnemyAIScript : MonoBehaviour
 
     private void Start()
     {
-        GameObject playerHolder = GameObject.FindGameObjectWithTag("Player");
+        GameObject playerHolder = FindObjectOfType<ThirdPersonController>().gameObject;
         if (playerHolder != null)
         {
             targetPos = playerHolder.transform;
