@@ -13,7 +13,7 @@ public class BattleManager : MonoBehaviour
 
     public EBattleState GetBattleState() { return BattleState; }
 
-    public void SetBattleState() {  BattleState = EBattleState.Wait;}
+    public void SetBattleState(EBattleState stateToSet) { BattleState = stateToSet; }
 
     public void InitializeBattle(List<GameObject> enemyBattleList)
     {
@@ -26,6 +26,7 @@ public class BattleManager : MonoBehaviour
             EnemyList.AddRange(enemyBattleList);
 
             GatherUnits();
+            OrderByDiceRoll();
             //Start First State of Battle
             SetBattleState(EBattleState.StartBattle);
             StartCoroutine(BattleStart());
@@ -52,28 +53,9 @@ public class BattleManager : MonoBehaviour
     }
     public void GatherUnits()
     {
-        TurnOrder.Clear(); // Clear the TurnOrder list before adding units.
-
-        var gameManager = GameManager.m_Instance; // Get a reference to the GameManager instance.
-
-        if (gameManager != null)
-        {
-            var player = gameManager.GetPlayer(); // Attempt to get the player object from GameManager.
-            if (player != null)
-            {
-                TurnOrder.Add(player); // If the player is not null, add it to the TurnOrder list.
-            }
-
-            var partyManager = gameManager.GetPartyManager(); // Attempt to get the PartyManager object from GameManager.
-            var partyList = partyManager?.GetPartyList(); // Use the null-conditional operator to get the party list safely.
-
-            if (partyList != null)
-            {
-                TurnOrder.AddRange(partyList); // If the party list is not null, add its members to the TurnOrder list.
-            }
-        }
-
-        TurnOrder.AddRange(EnemyList); // Add enemy units from the EnemyList.
+        TurnOrder.Add(GameManager.m_Instance.GetPlayer());
+        TurnOrder.AddRange(GameManager.m_Instance.GetPartyManager().GetPartyList());
+        TurnOrder.AddRange(EnemyList);
     }
 
     public void OrderByDiceRoll()
@@ -96,4 +78,4 @@ public class BattleManager : MonoBehaviour
 
 }
 
-public enum EBattleState { Wait, StartBattle,}
+public enum EBattleState { Wait, StartBattle, ChooseTurn, PlayerTurn, EnemyTurn, BattleWon, BattleLost}

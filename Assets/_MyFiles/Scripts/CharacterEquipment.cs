@@ -10,7 +10,7 @@ public class CharacterEquipment : MonoBehaviour
     {
         int equipmentIndex = (int)gear.GetEquipmentType();
 
-        if (CurrentEquipment[equipmentIndex] == null)
+        if (CurrentEquipment[equipmentIndex] != null)
         {
             Equipment oldItem = null;
 
@@ -34,8 +34,27 @@ public class CharacterEquipment : MonoBehaviour
     {
         //FIX THIS
         GameManager.m_Instance.GetPlayer().GetComponent<UnitCharacter>().GetCharacterStats().Getstat(StatType.MaxHealth).AddModifier(gear.MaxHealthMod);
+        GameManager.m_Instance.GetPlayer().GetComponent<UnitCharacter>().GetCharacterStats().Getstat(StatType.Health).AddModifier(gear.HealthMod);
+        GameManager.m_Instance.GetPlayer().GetComponent<UnitCharacter>().GetCharacterStats().Getstat(StatType.MaxMana).AddModifier(gear.MaxManaMod);
+        GameManager.m_Instance.GetPlayer().GetComponent<UnitCharacter>().GetCharacterStats().Getstat(StatType.Mana).AddModifier(gear.ManaMod);
+        GameManager.m_Instance.GetPlayer().GetComponent<UnitCharacter>().GetCharacterStats().Getstat(StatType.Power).AddModifier(gear.PowerMod);
+        GameManager.m_Instance.GetPlayer().GetComponent<UnitCharacter>().GetCharacterStats().Getstat(StatType.Intelligence).AddModifier(gear.IntelligenceMod);
+        GameManager.m_Instance.GetPlayer().GetComponent<UnitCharacter>().GetCharacterStats().Getstat(StatType.Speed).AddModifier(gear.SpeedMod);
+        GameManager.m_Instance.GetPlayer().GetComponent<UnitCharacter>().GetCharacterStats().Getstat(StatType.Defense).AddModifier(gear.DefenseMod);
         //
 
+    }
+
+    private void UnequipMods(Equipment gear)
+    {
+        GameManager.m_Instance.GetPlayer().GetComponent<UnitCharacter>().GetCharacterStats().Getstat(StatType.MaxHealth).AddModifier(gear.MaxHealthMod);
+        GameManager.m_Instance.GetPlayer().GetComponent<UnitCharacter>().GetCharacterStats().Getstat(StatType.Health).AddModifier(gear.HealthMod);
+        GameManager.m_Instance.GetPlayer().GetComponent<UnitCharacter>().GetCharacterStats().Getstat(StatType.MaxMana).AddModifier(gear.MaxManaMod);
+        GameManager.m_Instance.GetPlayer().GetComponent<UnitCharacter>().GetCharacterStats().Getstat(StatType.Mana).AddModifier(gear.ManaMod);
+        GameManager.m_Instance.GetPlayer().GetComponent<UnitCharacter>().GetCharacterStats().Getstat(StatType.Power).AddModifier(gear.PowerMod);
+        GameManager.m_Instance.GetPlayer().GetComponent<UnitCharacter>().GetCharacterStats().Getstat(StatType.Intelligence).AddModifier(gear.IntelligenceMod);
+        GameManager.m_Instance.GetPlayer().GetComponent<UnitCharacter>().GetCharacterStats().Getstat(StatType.Speed).AddModifier(gear.SpeedMod);
+        GameManager.m_Instance.GetPlayer().GetComponent<UnitCharacter>().GetCharacterStats().Getstat(StatType.Defense).AddModifier(gear.DefenseMod);
     }
 
 

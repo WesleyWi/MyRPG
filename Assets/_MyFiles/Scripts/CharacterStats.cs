@@ -42,4 +42,4 @@ public class CharacterStats : MonoBehaviour
 
     }
 }
-public enum StatType { MaxHealth, Health, MaxMana, Mana, Power, Intelligence, Defense, COUNT}
+public enum StatType { MaxHealth, Health, MaxMana, Mana, Power, Intelligence, Speed, Defense, COUNT}

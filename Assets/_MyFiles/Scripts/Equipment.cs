@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,7 +9,7 @@ public class Equipment : Item
     [SerializeField] EEquipmentType EquipmentType;
     [TextArea][SerializeField] string EquipmentDescription;
 
-    public int MaxHealthMod, HealthMod, MaxManaMod, ManaMod, PowerMod, IntelligenceMod, DefenseMod;
+    public int MaxHealthMod, HealthMod, MaxManaMod, ManaMod, PowerMod, IntelligenceMod, SpeedMod, DefenseMod;
 
     public EEquipmentType GetEquipmentType() {  return EquipmentType; }
 
