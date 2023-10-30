@@ -2485,6 +2485,7 @@ MonoBehaviour:
   _UnitType: 0
   DiceNumber: 0
   CharacterInventory: {fileID: 0}
+  CharacterEquipment: {fileID: 0}
 --- !u!1 &3903844509987804827
 GameObject:
   m_ObjectHideFlags: 0

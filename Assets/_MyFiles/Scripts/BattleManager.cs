@@ -11,6 +11,8 @@ public class BattleManager : MonoBehaviour
     [SerializeField] private float TransitionTime = 3f;
     private List<GameObject> EnemyList = new List<GameObject>();
 
+    private BattleUIManager BattleUI;
+
     public EBattleState GetBattleState() { return BattleState; }
 
     public void SetBattleState(EBattleState stateToSet) { BattleState = stateToSet; }
@@ -20,7 +22,9 @@ public class BattleManager : MonoBehaviour
         if (BattleStarted == false)
         {
             Debug.Log("Initislizing Battle...");
-            BattleStarted = true;
+
+            GameObject BattlUIClone = Instantiate(GameManager.m_Instance.GetBattleUI(), this.gameObject.transform, false);
+            BattleUI = BattleUIClone.GetComponent<BattleUIManager>();
 
             EnemyList.Clear();
             EnemyList.AddRange(enemyBattleList);
