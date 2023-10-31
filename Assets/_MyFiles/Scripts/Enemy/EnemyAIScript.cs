@@ -18,7 +18,7 @@ public class EnemyAIScript : MonoBehaviour
 
     private void Start()
     {
-        GameObject playerHolder = FindObjectOfType<ThirdPersonController>().gameObject;
+        GameObject playerHolder = GameManager.m_Instance.GetPlayer();
         if (playerHolder != null)
         {
             targetPos = playerHolder.transform;

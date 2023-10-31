@@ -23,7 +23,7 @@ public class BattleManager : MonoBehaviour
         {
             Debug.Log("Initislizing Battle...");
 
-            GameObject BattlUIClone = Instantiate(GameManager.m_Instance.GetBattleUI(), this.gameObject.transform, false);
+            GameObject BattleUIClone = Instantiate(GameManager.m_Instance.GetBattleUI(), this.gameObject.transform, false);
             BattleUI = BattleUIClone.GetComponent<BattleUIManager>();
 
             EnemyList.Clear();

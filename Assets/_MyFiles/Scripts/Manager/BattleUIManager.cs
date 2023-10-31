@@ -6,7 +6,7 @@ public class BattleUIManager : MonoBehaviour
 {
     private BattleManager CurrentBattle;
     [SerializeField] private GameObject PlayerUIPanel;
-    [SerializeField] private GameObject TransitionPanelANIM;
+    [SerializeField] private Animator TransitionPanelANIM;
     //[SerializeField] private GameObject BattleStartPostP;
 
     private void Start()

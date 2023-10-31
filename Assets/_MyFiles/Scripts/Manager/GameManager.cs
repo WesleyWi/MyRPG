@@ -34,10 +34,7 @@ public class GameManager : MonoBehaviour
         {
             m_Instance = this;
         }
-    }
 
-    private void Start()
-    {
         if (PlayerPrefab)
         {
             //Spawn Player
@@ -48,13 +45,16 @@ public class GameManager : MonoBehaviour
 
             LoadData();
 
-
-
         }
         else
         {
             Debug.LogWarning("PlayerPrefab or PlayerSpawn not referenced.");
         }
+    }
+
+    private void Start()
+    {
+        
 
         
     }
@@ -67,6 +67,8 @@ public class GameManager : MonoBehaviour
         int dicRoll = Random.Range(1, 20 + 1);
         return dicRoll;
     }
+
+    public GameObject GetBattleUI() { return BattleUI; }
 
     public void CreatePartyManager()
     {
