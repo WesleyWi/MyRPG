@@ -7,7 +7,7 @@ public class BattleUIManager : MonoBehaviour
     private BattleManager CurrentBattle;
     [SerializeField] private GameObject PlayerUIPanel;
     [SerializeField] private Animator TransitionPanelANIM;
-    //[SerializeField] private GameObject BattleStartPostP;
+    [SerializeField] private GameObject BattleStartPostP;
 
     private void Start()
     {
@@ -21,6 +21,8 @@ public class BattleUIManager : MonoBehaviour
             Debug.LogError("BattleUIManager: CurrentBattle Not Found!");
         }
     }
+
+    public GameObject GetPlayerUIPanel() { return PlayerUIPanel; }
 
     public void PlayTransition()
     {

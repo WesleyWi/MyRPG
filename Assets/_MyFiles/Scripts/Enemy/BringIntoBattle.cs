@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BringIntoBattle : MonoBehaviour
 {
-    [SerializeField] private List<GameObject> EnemyPartnerList = new List<GameObject>();
+    [SerializeField] private List<GameObject> PartnerList = new List<GameObject>();
 
-    public List<GameObject> GetEnemyPartnerList() { return EnemyPartnerList; }
+    public List<GameObject> GetEnemyPartnerList() { return PartnerList; }
 }
