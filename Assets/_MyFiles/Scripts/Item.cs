@@ -6,8 +6,8 @@ using UnityEngine;
 
 public class Item : ScriptableObject
 {
-    [SerializeField]public string m_ItemName {  get; private set; }
-    [SerializeField]public Sprite m_ItemIcon {  get; private set; }
+    public string m_ItemName;
+    public Sprite m_ItemIcon;
     [TextArea][SerializeField] string ItemDescription;
 
     public virtual void Use()

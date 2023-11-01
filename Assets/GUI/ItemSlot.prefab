@@ -199,8 +199,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemProfile: {fileID: 0}
-  Icon: {fileID: 0}
-  RemoveButton: {fileID: 0}
+  Icon: {fileID: 446050933574738501}
+  RemoveButton: {fileID: 8523742553714511756}
 --- !u!1 &8369009580390543870
 GameObject:
   m_ObjectHideFlags: 0

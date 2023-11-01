@@ -19,10 +19,7 @@ public class PickUpScript : MonoBehaviour
             {
                 Destroy(this.gameObject);
             }
-            else
-            {
 
-            }
         }
     }
 }
