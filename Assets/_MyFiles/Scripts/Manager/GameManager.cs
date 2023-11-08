@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] Transform PlayerSpawn;
     [SerializeField] GameObject InventorySlotUI;
     [SerializeField] GameObject BattleUI;
-    private GameObject Player;
+    [SerializeField] private GameObject Player;
 
 
     [SerializeField] private PartyManager Party;

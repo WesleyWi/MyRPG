@@ -11,9 +11,17 @@ public class BattleManager : MonoBehaviour
     [SerializeField] private float TransitionTime = 3f;
     [SerializeField] private Transform PartyPos;
     [SerializeField] private Transform EnemyPos;
-    private List<GameObject> EnemyList = new List<GameObject>();
 
+    [SerializeField] private GameObject CurrentSelection;
+    [SerializeField] private EActionType ActionType = EActionType.None;
+
+    private List<GameObject> EnemyList = new List<GameObject>();
     private BattleUIManager BattleUI;
+    private GameObject BattleCamera;
+
+    public void SetActionType(EActionType actionTypeToSet) { ActionType = actionTypeToSet; }
+
+    public void SetCurrentSelection(GameObject unitToSet) { CurrentSelection = unitToSet; }
 
     public EBattleState GetBattleState() { return BattleState; }
 
@@ -27,16 +35,22 @@ public class BattleManager : MonoBehaviour
                 //Do Nothing
                 break;
             case EBattleState.StartBattle:
+                StartCoroutine(BattleStart());
                 break;
             case EBattleState.ChooseTurn:
+                ChooseTurn();
                 break;
             case EBattleState.PlayerTurn:
+                PlayerTurn();
                 break;
             case EBattleState.EnemyTurn:
+                EnemyTurn();
                 break;
             case EBattleState.BattleWon:
+
                 break;
             case EBattleState.BattleLost:
+
                 break;
         }
     }
@@ -49,8 +63,9 @@ public class BattleManager : MonoBehaviour
 
             GameObject BattleUIClone = Instantiate(GameManager.m_Instance.GetBattleUI(), this.gameObject.transform, false);
             BattleUI = BattleUIClone.GetComponent<BattleUIManager>();
-
             BattleUI.GetPlayerUIPanel().SetActive(false);
+
+            BattleCamera = GameObject.FindGameObjectWithTag("BattleCamera");
 
             EnemyList.Clear();
             EnemyList.AddRange(enemyBattleList);
@@ -75,8 +90,12 @@ public class BattleManager : MonoBehaviour
         Time.timeScale = 1f;
         Time.fixedDeltaTime = Time.timeScale;
 
-
         yield return new WaitForSeconds(TransitionTime);
+
+        GameManager.m_Instance.GetPlayer().transform.parent.gameObject.SetActive(false);
+        BattleCamera.AddComponent<Camera>();
+        BattleCamera.AddComponent<AudioListener>();
+        
         BattleUI.EndTransition();
 
         SetBattleState(EBattleState.ChooseTurn);
@@ -102,8 +121,8 @@ public class BattleManager : MonoBehaviour
             }
             else
             {
-                unit.gameObject.transform.position = new Vector3(PartyPos.transform.position.x, PartyPos.transform.position.y, PartyPos.transform.position.z + (enemyCount * 5f));
-                unit.gameObject.transform.rotation = Quaternion.Euler(0, 90, 0);
+                unit.gameObject.transform.position = new Vector3(EnemyPos.transform.position.x, EnemyPos.transform.position.y, EnemyPos.transform.position.z + (enemyCount * 5f));
+                unit.gameObject.transform.rotation = Quaternion.Euler(0, -90, 0);
                 enemyCount++;
             }
         }
@@ -167,6 +186,30 @@ public class BattleManager : MonoBehaviour
         SetBattleState(EBattleState.ChooseTurn);
     }
 
+    private void Update()
+    {
+        if (Input.GetMouseButtonDown(0) && CurrentSelection)
+        {
+            switch (ActionType)
+            {
+                case EActionType.None:
+                    
+                    break;
+                case EActionType.Attack:
+                    TurnOrder[0].GetComponent<IBattleActions>().Attack(CurrentSelection.GetComponent<UnitCharacter>());
+                    break;
+                case EActionType.Heal:
+                    TurnOrder[0].GetComponent<IBattleActions>().Attack(CurrentSelection.GetComponent<UnitCharacter>());
+                    break;
+                default:
+                    
+                    break;
+            }
+        }
+    }
+
 }
 
 public enum EBattleState { Wait, StartBattle, ChooseTurn, PlayerTurn, EnemyTurn, BattleWon, BattleLost}
+
+public enum EActionType {None, Attack, Heal}

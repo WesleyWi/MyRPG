@@ -20,6 +20,7 @@ public class BattleUIManager : MonoBehaviour
         {
             Debug.LogError("BattleUIManager: CurrentBattle Not Found!");
         }
+
     }
 
     public GameObject GetPlayerUIPanel() { return PlayerUIPanel; }
@@ -32,6 +33,16 @@ public class BattleUIManager : MonoBehaviour
     public void EndTransition()
     {
         TransitionPanelANIM.SetTrigger("EndTransition");
+    }
+
+    public void AttackButton()
+    {
+        if (CurrentBattle) { CurrentBattle.SetActionType(EActionType.Attack); }
+    }
+
+    public void HealButton()
+    {
+        if (CurrentBattle) { CurrentBattle.SetActionType(EActionType.Heal); }
     }
 
     public void EndTurnBatton()
