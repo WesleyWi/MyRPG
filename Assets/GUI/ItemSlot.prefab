@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 6302161769693052869}
   - component: {fileID: 8159834616698002015}
   - component: {fileID: 8523742553714511756}
-  - component: {fileID: 512913267142244663}
   m_Layer: 5
   m_Name: RemoveButton
   m_TagString: Untagged
@@ -121,7 +120,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 512913267142244663}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ItemSlot, Assembly-CSharp
         m_MethodName: RemoveButtonFUNC
         m_Mode: 1
@@ -133,21 +132,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &512913267142244663
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 609652036857343921}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 537cb69c958e11b4d872dd8c0021d28d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ItemProfile: {fileID: 0}
-  Icon: {fileID: 446050933574738501}
-  RemoveButton: {fileID: 8523742553714511756}
 --- !u!1 &7921981649653265962
 GameObject:
   m_ObjectHideFlags: 0

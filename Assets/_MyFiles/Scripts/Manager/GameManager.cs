@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private BattleManager CurrentBattle;
     [SerializeField] private InventroyUIManager InventoryUI;
 
-    bool bDebugToggle = false;
+    bool bDebugToggle = true;
 
     public void Awake()
     {

@@ -3902,20 +3902,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: ItemSlot
       objectReference: {fileID: 0}
-    - target: {fileID: 8364906286942758520, guid: 8e7ef9e4565d284409a45556d63e21a6,
+    - target: {fileID: 8523742553714511756, guid: 8e7ef9e4565d284409a45556d63e21a6,
         type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8364906286942758520, guid: 8e7ef9e4565d284409a45556d63e21a6,
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 7495928555857498744}
+    - target: {fileID: 8523742553714511756, guid: 8e7ef9e4565d284409a45556d63e21a6,
         type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8364906286942758520, guid: 8e7ef9e4565d284409a45556d63e21a6,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RemoveButtonFUNC
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3928,6 +3923,18 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 7495928555857498742}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7495928555857498744 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4573548657595380023, guid: 8e7ef9e4565d284409a45556d63e21a6,
+    type: 3}
+  m_PrefabInstance: {fileID: 7495928555857498742}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 537cb69c958e11b4d872dd8c0021d28d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8056100701800404991
 PrefabInstance:
   m_ObjectHideFlags: 0
